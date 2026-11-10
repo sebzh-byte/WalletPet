@@ -9,11 +9,11 @@ object Catalogo {
         Producto("Arenero", "🧺", 150, 1),
         Producto("Cama", "🛏️", 175, 1),
         Producto("Planta", "🪴", 200, 1),
-        Producto("Sorpresa 1", "🎁", 300, 3),
-        Producto("Sorpresa 2", "🎁", 320, 3),
-        Producto("Sorpresa 3", "🎁", 400, 4),
-        Producto("Sorpresa 4", "🎁", 420, 4),
-        Producto("Sorpresa 5", "🎁", 450, 4)
+        Producto("Cojín gatito", "🎁", 300, 3),
+        Producto("Tapete osito", "🎁", 320, 3),
+        Producto("Cojín nube", "🎁", 400, 4),
+        Producto("Cojín sandía", "🎁", 420, 4),
+        Producto("Peluche gatito", "🎁", 450, 4)
     )
 
     val categoriasGasto = listOf(

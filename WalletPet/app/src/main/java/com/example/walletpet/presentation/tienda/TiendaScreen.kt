@@ -4,13 +4,30 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,8 +41,21 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.walletpet.R
-import com.example.walletpet.core.ui.components.*
-import com.example.walletpet.core.ui.theme.*
+import com.example.walletpet.core.ui.components.BarraSuperior
+import com.example.walletpet.core.ui.components.BotonClaro
+import com.example.walletpet.core.ui.components.BotonOliva
+import com.example.walletpet.core.ui.components.DialogoAviso
+import com.example.walletpet.core.ui.components.DialogoWallet
+import com.example.walletpet.core.ui.components.TextoDialogo
+import com.example.walletpet.core.ui.components.TituloDialogo
+import com.example.walletpet.core.ui.theme.BordeTan
+import com.example.walletpet.core.ui.theme.Crema
+import com.example.walletpet.core.ui.theme.Durazno
+import com.example.walletpet.core.ui.theme.GrisBloq
+import com.example.walletpet.core.ui.theme.GrisIcono
+import com.example.walletpet.core.ui.theme.Naranja
+import com.example.walletpet.core.ui.theme.Oliva
+import com.example.walletpet.core.ui.theme.OlivaOscuro
 import com.example.walletpet.domain.model.Catalogo
 import com.example.walletpet.domain.model.Producto
 import com.example.walletpet.domain.model.ReglasMascota
@@ -39,6 +69,11 @@ private fun ImagenProducto(nombre: String, emoji: String, tamano: Dp) {
         "Arenero" -> R.drawable.item_arenero
         "Cama" -> R.drawable.item_cama
         "Planta" -> R.drawable.item_planta
+        "Cojín gatito" -> R.drawable.item_cojin_gato
+        "Tapete osito" -> R.drawable.item_tapete_oso
+        "Cojín nube" -> R.drawable.item_cojin_nube
+        "Cojín sandía" -> R.drawable.item_cojin_sandia
+        "Peluche gatito" -> R.drawable.item_peluche_gato
         else -> null
     }
     if (recurso != null) {
@@ -56,7 +91,7 @@ fun TiendaScreen(viewModel: TiendaViewModel = viewModel(factory = TiendaViewMode
 
     Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Durazno, Crema)))) {
         Column(Modifier.fillMaxSize()) {
-            // Imagen del cuarto con la barra de nivel encima
+            // Imagen del cuarto con la barra de nivel encima y el gatito echado en el tapete
             Box {
                 Image(
                     painter = painterResource(R.drawable.fondo_tienda),
@@ -65,6 +100,14 @@ fun TiendaScreen(viewModel: TiendaViewModel = viewModel(factory = TiendaViewMode
                     contentScale = ContentScale.Crop
                 )
                 BarraSuperior(state.barra)
+                Image(
+                    painter = painterResource(R.drawable.gato_echado),
+                    contentDescription = "Gatito echado",
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)   // abajo, al centro (sobre el tapete)
+                        .offset(x = 20.dp, y = (-20).dp) // x: + derecha / - izquierda · y: - sube / + baja
+                        .height(120.dp)                  // tamaño del gato (más grande = número más alto)
+                )
             }
 
             LazyVerticalGrid(
