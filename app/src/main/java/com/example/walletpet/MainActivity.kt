@@ -1,13 +1,14 @@
 package com.example.walletpet
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.walletpet.ui.WalletPetApp
-import com.example.walletpet.ui.theme.WalletPetTheme
+import androidx.fragment.app.FragmentActivity
+import com.example.walletpet.core.ui.theme.WalletPetTheme
+import com.example.walletpet.navigation.WalletPetApp
 
-class MainActivity : ComponentActivity() {
+// FragmentActivity (y no ComponentActivity) porque la huella (BiometricPrompt) lo necesita.
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
