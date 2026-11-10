@@ -48,7 +48,7 @@ Proyecto integrador · Desarrollo de Aplicaciones Móviles · Universidad Polit�
 - **Metas:** carrusel de metas (no se desborda aunque tengas muchas). Puedes crear, registrar
   ahorro y eliminar. Muestra tu ahorro total convertido a **USD o EUR con la API** (con
   estados de carga, sin datos, error y botón **Reintentar**).
-- **Gastos:** registrar gastos por categoría e ingresos, ver los del mes o todos.
+- **Gastos:** registrar gastos con nombre y monto (categoría opcional) e ingresos. "Mes" muestra el resumen por categoría y "Todo" cada gasto con su nombre, fecha y opción de borrarlo.
 - **Reportes:** uno por mes, generado con los datos guardados. Se descarga como **PDF**
   real, se puede abrir o compartir.
 - **Huella / PIN** al abrir la app.
